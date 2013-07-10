@@ -4,7 +4,7 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
         var indx = fs.readFileSync('index.html');
-	buf = new Buffer();
+	buf = new Buffer(256);
 	len = buf.write(indx);
 	console.log(len + " bytes: " + buf.toString('utf8', 0, len));
 	response.writeHead(200, {'Content-Type': 'text/plain'});
